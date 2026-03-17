@@ -33,7 +33,7 @@ class Alert(Base):
     title = Column(String(256), nullable=False)
     message = Column(Text, nullable=False)
     asset_symbol = Column(String(32))     # Optional: related asset
-    metadata = Column(JSON)               # Additional context data
+    extra_data = Column(JSON)              # Additional context data
     is_read = Column(Boolean, default=False)
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())

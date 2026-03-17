@@ -239,7 +239,7 @@ def upgrade() -> None:
         sa.Column('title', sa.String(256), nullable=False),
         sa.Column('message', sa.Text(), nullable=False),
         sa.Column('asset_symbol', sa.String(32), nullable=True),
-        sa.Column('metadata', sa.JSON(), nullable=True),
+        sa.Column('extra_data', sa.JSON(), nullable=True),
         sa.Column('is_read', sa.Boolean(), nullable=True),
         sa.Column('is_active', sa.Boolean(), nullable=True),
         sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=True),
