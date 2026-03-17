@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 95%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 95%;
+
+    --border: 217 33% 14%;
+    --input: 217 33% 14%;
+    --ring: 210 100% 60%;
+
+    --primary: 210 100% 56%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 217 33% 14%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 210 100% 56%;
+    --accent-foreground: 222 47% 5%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Card variants */
+  .card-base {
+    @apply bg-card border border-border rounded-xl p-4;
+  }
+  .card-glass {
+    @apply bg-card/60 backdrop-blur-sm border border-border/50 rounded-xl;
+  }
+
+  /* Bias direction badges */
+  .badge-bullish {
+    @apply bg-green-500/15 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-md text-xs font-semibold;
+  }
+  .badge-bearish {
+    @apply bg-red-500/15 text-red-400 border border-red-500/30 px-2 py-0.5 rounded-md text-xs font-semibold;
+  }
+  .badge-neutral {
+    @apply bg-slate-500/15 text-slate-400 border border-slate-500/30 px-2 py-0.5 rounded-md text-xs font-semibold;
+  }
+
+  /* Score bar */
+  .score-bar {
+    @apply h-1.5 rounded-full bg-border overflow-hidden;
+  }
+  .score-bar-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  /* Table styles */
+  .data-table th {
+    @apply text-xs font-medium text-muted-foreground uppercase tracking-wider px-3 py-2 text-left;
+  }
+  .data-table td {
+    @apply px-3 py-2.5 text-sm border-t border-border/50;
+  }
+  .data-table tr:hover td {
+    @apply bg-white/[0.02];
+  }
+
+  /* Regime pill */
+  .regime-pill {
+    @apply px-3 py-1 rounded-full text-xs font-semibold border;
+  }
+
+  /* Sidebar nav */
+  .nav-item {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-muted-foreground
+           hover:text-foreground hover:bg-white/[0.05] transition-all duration-150 cursor-pointer;
+  }
+  .nav-item.active {
+    @apply text-foreground bg-primary/10 border border-primary/20;
+  }
+
+  /* Number displays */
+  .value-positive {
+    @apply text-green-400 font-mono;
+  }
+  .value-negative {
+    @apply text-red-400 font-mono;
+  }
+  .value-neutral {
+    @apply text-slate-400 font-mono;
+  }
+
+  /* Chart container */
+  .chart-container {
+    @apply w-full rounded-lg overflow-hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(222 47% 5%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(217 33% 20%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(217 33% 28%);
+}
+
+/* TradingView chart dark theme override */
+.tv-chart-container {
+  @apply rounded-lg overflow-hidden;
+}
